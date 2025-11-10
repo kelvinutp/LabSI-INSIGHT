@@ -1,0 +1,718 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Conexión WiFi</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="58e45ad1-eacc-45f0-897d-5bd2ee82f5e4" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1586920740280-e7da670f7cb7?ixlib=rb-1.2.1&amp;q=80&amp;cs=tinysrgb&amp;fm=jpg&amp;crop=entropy" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon notion-static-icon" src="https://www.notion.so/icons/gradebook_blue.svg"/></div><h1 class="page-title">Conexión WiFi</h1><p class="page-description"></p></header><div class="page-body"><h2 id="2b957f8b-035c-4db5-9fcc-49250ca0b421" class=""><mark class="highlight-red">IMPORTANTE</mark></h2><blockquote id="a3a05276-6b35-46a6-b063-48a023e7965f" class="">Si es la primera vez que va a configurar la red WiFi, debe conectarse por SSH utilizando cable Ethernet, en la sección &gt;&gt;<mark class="highlight-blue_background">[</mark><mark class="highlight-blue_background"><a href="Primera%20configuraci%C3%B3n%20a04ea1c6ae2e49478947df5a77ac83d8.html">Primera configuración</a></mark><mark class="highlight-blue_background">]</mark>&lt;&lt;se detalla paso a paso cómo realizarla correctamente.</blockquote><p id="dc56128d-662d-48fb-b37b-ef744d6cb0f8" class="">
+</p><figure id="49cb00dd-0304-43bb-8fab-b13e649be331"><div class="source"><a href="https://youtu.be/Zv7dZxsQao0">https://youtu.be/Zv7dZxsQao0</a></div></figure><p id="f9f15aba-61c3-4eb5-8d90-303685cebc20" class="">
+</p><h3 id="2dc459a2-f868-4102-a52d-c020b3991a3b" class="">Paso 1</h3><p id="c077790f-a046-430d-b7be-ed42e61e46a8" class="">En la consola escribir el siguiente comando</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="33a6a74d-9ef4-48bc-84b4-90ee75876794" class="code code-wrap"><code class="language-Visual Basic" style="white-space:pre-wrap;word-break:break-all">sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</code></pre><figure id="16becf8d-e90e-4185-89ce-f228ac6eeea4" class="image"><a href="Conexi%C3%B3n%20WiFi/Untitled.png"><img style="width:312px" src="Conexi%C3%B3n%20WiFi/Untitled.png"/></a></figure><h3 id="b0a5d976-b599-43a2-8e63-aab15d4d3535" class="">Paso 2</h3><p id="be9755a9-7304-4ab8-bd4e-0c218fc68257" class="">Se nos abrirá la siguiente ventana</p><figure id="827fcdac-7af6-4317-834c-c78767918dfa" class="image"><a href="Conexi%C3%B3n%20WiFi/Untitled%201.png"><img style="width:312px" src="Conexi%C3%B3n%20WiFi/Untitled%201.png"/></a></figure><p id="4602e90a-2b7b-4dba-9b25-8780ebae04e1" class="">Debemos escribir los siguiente</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="0513db4c-f1e6-4229-87e2-24be803efda6" class="code code-wrap"><code class="language-Visual Basic" style="white-space:pre-wrap;word-break:break-all">network={
+	ssid=&quot;Nombre_la_red_WiFi&quot;
+	psk=&quot;Contraseña_de_la_red_WiFi&quot;
+	key_mgmt=WPA-PSK
+}</code></pre><figure id="6d7b4c69-a786-4a6c-9835-ec64ab28dbad" class="image" style="text-align:center"><a href="Conexi%C3%B3n%20WiFi/Untitled%202.png"><img style="width:312px" src="Conexi%C3%B3n%20WiFi/Untitled%202.png"/></a></figure><h3 id="b086e342-deb3-47cf-9785-a179794de1f4" class=""><mark class="highlight-red">IMPORTANTE</mark></h3><blockquote id="ee153ac8-7117-4b8c-9033-3ada98be240a" class=""><mark class="highlight-red">El nombre de la red WiFi y la contraseña deben estar correctamente escritas</mark></blockquote><h3 id="c9baba3a-d975-42fe-a8b4-09e173b6725d" class="">Paso 3</h3><p id="41e2b305-1654-4133-ad63-dd2f2070bd2f" class="">Presionar las siguientes teclas en el siguiente orden para guardar los cambios.</p><ul id="6a78ed2d-5363-47df-93dd-7a89f5b369a8" class="bulleted-list"><li style="list-style-type:disc">Ctrl x</li></ul><ul id="e71e5bc7-8291-4185-a826-d131ae27b958" class="bulleted-list"><li style="list-style-type:disc">s (para versiones en español) </li></ul><ul id="d17eb02c-8172-4bd9-8007-605f072c8a33" class="bulleted-list"><li style="list-style-type:disc">y (para versiones en ingles)</li></ul><ul id="9fb2db56-b5a4-4408-8690-947544f1a577" class="bulleted-list"><li style="list-style-type:disc">Enter </li></ul><h3 id="c359888b-62d1-4c3f-bc80-4268dcf1a33d" class="">Paso 4</h3><p id="edb42c80-8afa-4345-8a87-172ed9035529" class="">Ya tenemos nuestra red registrada a continuación, apagaremos nuestra Raspberry desde la consola con el siguiente comando</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="eca00470-ba66-42e8-9037-3a806699fb21" class="code code-wrap"><code class="language-Visual Basic" style="white-space:pre-wrap;word-break:break-all">sudo shutdown now</code></pre><figure id="b4b6210f-4a72-46e7-a6d1-acb3510bfeeb" class="image"><a href="Conexi%C3%B3n%20WiFi/Untitled%203.png"><img style="width:312px" src="Conexi%C3%B3n%20WiFi/Untitled%203.png"/></a></figure><p id="c4870d08-b92c-4a16-89eb-ea2c51001c51" class=""><mark class="highlight-blue">NOTA</mark></p><blockquote id="99dcd004-6b73-4a4d-b298-bab5b521b03d" class=""><mark class="highlight-blue">En este punto podemos desconectar nuestra Raspberry de nuestra PC, si todo está correctamente configurado podemos prender nuestra raspberry y conectarnos sin necesidad del cable Ethernet</mark></blockquote><p id="1443eba0-0a3b-4e8c-b67a-df372a92dc58" class="">
+</p><h2 id="0e2953ff-6bca-472a-ab19-8edb54fec05f" class="">Conexión SSH Wifi</h2><blockquote id="0bbb711d-6e75-4582-bfc1-3b2a45be299e" class="">Para la conexión SSH por Wifi necesitamos conocer la ip que está asociada a nuestra raspberry, este valor lo podemos obtener por medio de diferentes aplicaciones, a continuación, se recomienda algunos software y apps que nos pueden ser de utilidad para monitorear la conexión de nuestro raspberry.</blockquote><p id="bb7af195-47d0-4f5d-8ae7-6b010d9b991e" class=""><strong><mark class="highlight-blue">Advance IP scaner (Windows)</mark></strong></p><figure id="883e33fa-4f60-479d-bab5-8b4e5a3ec403"><a href="https://www.advanced-ip-scanner.com/es/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Advanced IP Scanner - Explorador de redes de descarga gratuita.</div><div class="bookmark-description">Advanced IP Scanner muestra todos los dispositivos en red, le permite acceder a las carpetas compartidas e incluso desactivar los equipos en red de forma remota. Descárguelo gratis.</div></div><div class="bookmark-href"><img src="https://www.advanced-ip-scanner.com/favicon.ico" class="icon bookmark-icon"/>https://www.advanced-ip-scanner.com/es/</div></div></a></figure><figure id="8635cb4f-228a-46f5-9747-e75b7209e402" class="image"><a href="Conexi%C3%B3n%20WiFi/Untitled%204.png"><img style="width:336px" src="Conexi%C3%B3n%20WiFi/Untitled%204.png"/></a></figure><p id="00e2db6a-0500-4902-b54e-cc6a397919ef" class=""><mark class="highlight-blue"><strong>Fing (Android)</strong></mark></p><figure id="6375f942-7091-48d3-901b-d06486e33a3a"><a href="https://play.google.com/store/apps/details?id=com.overlook.android.fing" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Fing - Network Tools - Apps on Google Play</div><div class="bookmark-description">Fing has helped 40 million user worldwide to understand:* Who&#x27;s on my WiFi* Is someone stealing my WiFi and broadband?* Have I&#x27;ve been hacked? Is my network secure?* Are there hidden cameras in the B&amp;B I&#x27;m staying in?* Why Netflix streaming has started buffering?* Is my internet provider giving me the speed I pay for?</div></div><div class="bookmark-href"><img src="https://www.gstatic.com/android/market_images/web/favicon_v3.ico" class="icon bookmark-icon"/>https://play.google.com/store/apps/details?id=com.overlook.android.fing</div></div><img src="https://play-lh.googleusercontent.com/ur5MtAqgdeIN5nsf2A_kVI2nF-JDfxp0_DrL0o5tzcUo2nG0lxPmWiLFTNUyr5ZH0w" class="bookmark-image"/></a></figure><figure id="026c29a3-4acc-41ba-adbe-ea5644b8c3e6" class="image"><a href="Conexi%C3%B3n%20WiFi/Untitled%205.png"><img style="width:286px" src="Conexi%C3%B3n%20WiFi/Untitled%205.png"/></a></figure><p id="7db53321-a122-434c-a6ca-1bd646cd4051" class="">
+</p><h3 id="bc819c1a-bb7e-4b66-9758-be4df543ecec" class="">Paso 1</h3><p id="8e9aae3c-f4ee-48fa-8f0d-9c7995246312" class="">Este paso será realizado con los programas recomendados</p><p id="dd023cfd-bb92-49d4-a1b2-7256e626cd2e" class=""><mark class="highlight-blue"><strong>Advance ip scaner</strong></mark></p><p id="3e99dd2e-a85f-4579-80ac-8625a341bdc2" class="">Damos click en Sacn</p><figure id="9a6080db-4899-47bb-bab1-fc3c720b6056" class="image"><a href="Conexi%C3%B3n%20WiFi/Untitled%206.png"><img style="width:312px" src="Conexi%C3%B3n%20WiFi/Untitled%206.png"/></a></figure><p id="272a3d90-83e2-40aa-b708-fc74c72c3390" class="">Como podemos ver la ip asociada a nuesta raspberry es la <strong><mark class="highlight-blue">192.168.1.28</mark></strong></p><p id="3448c52c-977d-4a09-bdae-77f02c719a05" class="">
+</p><p id="8a8290ac-dc22-4efd-a20b-4f2d1433a4d0" class=""><strong><mark class="highlight-blue">Fing</mark></strong></p><p id="200ade9d-cb5d-4b4c-a8b5-c89f481bef6e" class="">Abrimos la aplicación Fing y tocamos la opción Online device</p><figure id="734e35cb-7824-461b-947f-c06c5b3e879a" class="image"><a href="Conexi%C3%B3n%20WiFi/Untitled.jpeg"><img style="width:336px" src="Conexi%C3%B3n%20WiFi/Untitled.jpeg"/></a></figure><p id="3ef9b4e0-c8a7-46a4-9a16-6d2ceb061c7f" class="">Hacemos Refesh</p><figure id="c3c360bf-a352-4ddd-b723-db80a14320d3" class="image"><a href="Conexi%C3%B3n%20WiFi/Untitled%201.jpeg"><img style="width:432px" src="Conexi%C3%B3n%20WiFi/Untitled%201.jpeg"/></a></figure><p id="4ab31c86-113f-490f-9774-3f9a6c9da093" class="">Como podemos ver desde el móvil también podemos obtener la ip asociada a nuestra raspberry</p><p id="ee01f45b-5af2-4ecc-a800-695777f3c8b2" class="">en este caso su ip asociada es la <strong><mark class="highlight-blue">192.168.1.28</mark></strong></p><p id="5d403519-bc8b-404d-a6bf-e7eb9c346d7d" class="">
+</p><h3 id="b0e87f7d-5b6f-4b7e-accd-970dbb6320da" class="">Paso 2</h3><p id="af261283-28d3-46d7-8a9e-57b24e32b5dd" class="">Abrimos PuTTY y colocamos la ip obtenida en el Host name, el Port es el 22, posterior damos click en ”Open”</p><figure id="b8ffd932-2cbf-4f70-b24a-692e6205b112" class="image"><a href="Conexi%C3%B3n%20WiFi/Untitled%207.png"><img style="width:312px" src="Conexi%C3%B3n%20WiFi/Untitled%207.png"/></a></figure><p id="733a5bc9-68d3-48c5-a2fb-ff05198a3172" class="">Esto nos lanzara un mensaje, damos Click en accept</p><figure id="7444c5bf-cb7a-4018-b90c-1df988a348a6" class="image"><a href="Conexi%C3%B3n%20WiFi/Untitled%208.png"><img style="width:312px" src="Conexi%C3%B3n%20WiFi/Untitled%208.png"/></a></figure><p id="35d15d4d-5168-40f4-98db-a3565e9d4b6f" class="">Iniciamos sesión</p><p id="9ba8197a-adc5-4c3b-9ff2-f328120fbcb7" class="">login as: pi</p><p id="9ecb8937-3bb5-4048-be8e-918278221f1b" class="">pi@raspberrypi.local&#x27;s password: raspberry</p><p id="6cd25645-a0ef-435f-ade2-497e3fc21c5e" class=""><mark class="highlight-red">IMPORTANTE: La contraseña no se muestra al escribirla, solo debemos escribirla correctamente y dar enter.</mark></p><figure id="c3367565-adeb-43aa-8f11-0613b690a4ef" class="image"><a href="Conexi%C3%B3n%20WiFi/Untitled%209.png"><img style="width:312px" src="Conexi%C3%B3n%20WiFi/Untitled%209.png"/></a><figcaption>Pantalla de login</figcaption></figure><figure id="6e214320-8978-42e0-b7fe-e4671ccd39e1" class="image"><a href="Primera%20configuraci%C3%B3n/Untitled%209.png"><img style="width:312px" src="Primera%20configuraci%C3%B3n/Untitled%209.png"/></a><figcaption>Login exitoso</figcaption></figure><p id="a48bce34-cb2e-455c-bc36-2e0f4839ba6f" class="">
+</p><ul id="947dd9d9-9dde-485f-a441-60ef7211101b" class="toggle"><li><details open=""><summary>Bibliografía</summary><figure id="66632a30-e3bc-44f8-9367-519a70fc94d0"><a href="https://www.luisllamas.es/raspberry-pi-wifi/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Configurar Wifi en Raspberry Pi por GUI o Terminal</div><div class="bookmark-description">En esta entrada vamos a ver cómo configurar nuestra Raspberry Pi para conectarse por Wifi bien sea a través del interface gráfico o mediante consola de comandos. Conectar Raspberry Pi a través de LAN es útil en muchos casos, pero lógicamente disponer de Wifi nos va a permitir una libertad a la hora de trabajar ...</div></div><div class="bookmark-href"><img src="https://www.luisllamas.es/favicon.ico" class="icon bookmark-icon"/>https://www.luisllamas.es/raspberry-pi-wifi/</div></div><img src="https://www.luisllamas.es/wp-content/uploads/2018/05/raspberry-pi-configurar-wifi.png" class="bookmark-image"/></a></figure><p id="70bf10ad-984f-4d02-bfa1-9e0b87a15a1f" class="">
+</p></details></li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

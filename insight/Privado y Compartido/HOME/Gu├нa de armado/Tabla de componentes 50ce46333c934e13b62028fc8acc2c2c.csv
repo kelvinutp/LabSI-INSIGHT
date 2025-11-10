@@ -1,0 +1,13 @@
+﻿Name,ID,Unidades
+Ultrasonico,HC-SR04,3
+Rasberry Pi 4,,1
+Cables de conexión,,6
+Pi Camara,PICAM01,1
+Modulo de carga,,1
+Arduino Nano,,1
+Sensor de Temperatura y humedad,DHT11,2
+Modulo regulador de potencia,LM2596,1
+,,
+PCB,,3
+Sensor de velocidad,,2
+Sensor RGB,TCS3200,1
